@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/properties"
+public_folder: "/images/properties"
+
+collections:
+  - name: "properties"
+    label: "Properties"
+    folder: "content/properties"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "Property name or location" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly version of title (e.g., bronx-property-1)" }
+      - { label: "Location", name: "location", widget: "string", hint: "e.g., Bronx, Brooklyn, Queens" }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      - { label: "Gallery", name: "gallery", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
+      - { label: "Description", name: "description", widget: "markdown", required: false }
+      - { label: "Address", name: "address", widget: "string", required: false }
+      - { label: "Property Type", name: "propertyType", widget: "select", options: ["residential", "commercial", "mixed-use"], required: false }
+      - { label: "Status", name: "status", widget: "select", options: ["owned", "under-management", "sold"], default: "owned", required: false }
+      - { label: "Year Acquired", name: "yearAcquired", widget: "string", required: false }
+      - { label: "Units", name: "units", widget: "number", required: false }
+      - { label: "Square Footage", name: "squareFootage", widget: "number", required: false }
+      - { label: "Publish Date", name: "date", widget: "datetime", default: "" }
